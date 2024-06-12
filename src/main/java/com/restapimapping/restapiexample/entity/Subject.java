@@ -25,7 +25,4 @@ public class Subject {
 
     private String mobile;
 
-
-
-
 }
