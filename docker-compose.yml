@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: demo_db
+      POSTGRES_USER: swamesha
+      POSTGRES_PASSWORD: swamesha
+
+  app:
+    image: rest-api-example
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://db:5432/demo_db"
+      SPRING_DATASOURCE_USERNAME: "swamesha"
+      SPRING_DATASOURCE_PASSWORD: "swamesha"
+    depends_on:
+      - db
